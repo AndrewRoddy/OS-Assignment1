@@ -113,4 +113,24 @@ We then update the data in the semaphores to not using it anymore and full so th
 ```cpp
 sleep(1);
 ```
-We then have it wait for a second. This is not important but makes it visually easier to understand in the terminal. This code could be deleted but I decided to leave it in for educational purposes.
+We then have it wait for a second. This is not important but makes it visually easier to understand in the terminal. This code could be deleted but I decided to leave it in for educational purposes.This value can also only be a minimum of one second as it does not accept floats or doubles. This is also important as I selected the lowest possible amount for this function. Although I didn't mention this earlier this function comes from `unistd.h` which needs to be included to use it. This is okay though as we also need to include this library to run `ftruncate()` so we do not include anything just for this visual element.
+### 4. The Main Function
+
+##### 1. Starting up
+```cpp
+int main() {
+    std::cout << "Starting up producer." << std::endl;
+
+    // Sets srand to a random value 
+    srand(time(0));
+
+    // Creates or opens the shared memory
+    int sharedMemory = shm_open("/shared_buffer", O_CREAT | O_RDWR, 0666);
+    // If it failed to open send out an error message
+    if (sharedMemory == -1) {
+        std::cout << "Producer failed to open shared memory." << std::endl;
+        return 1;
+    }
+```
+We do a few initial things in int main to make this possible to run. The first thing we do is I send a starting up message so the user knows that this file is properly initialized. After this I set `srand()` to the current time to allow random numbers to be generated. Then I initialize the shared memory variable with `shm_open()`. This is stored in the `"/shared_buffer"`.
+I then have an if statement that prints an error message if it failed to initialize.
