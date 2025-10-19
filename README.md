@@ -295,3 +295,51 @@ All of this code is the exact same or less than the `producer.cpp`. It is not ne
 
 # Thank You
 Thank you for reading my OS Assignment 1 documentation! :)
+
+# Executed example result
+```
+~<Producer>~ {|} Produced : 151
+~<Consumer>~ {|} Consumed : 151
+~<Producer>~ {|} Produced : 52
+~<Consumer>~ {|} Consumed : 52
+~<Producer>~ {|} Produced : 122
+~<Consumer>~ {|} Consumed : 122
+~<Producer>~ {|} Produced : 85
+~<Consumer>~ {|} Consumed : 85
+~<Producer>~ {|} Produced : 75
+~<Consumer>~ {|} Consumed : 0
+~<Producer>~ {|} Produced : 118
+~<Consumer>~ {|} Consumed : 118
+~<Producer>~ {|} Produced : 133
+~<Consumer>~ {|} Consumed : 133
+~<Producer>~ {|} Produced : 102
+~<Consumer>~ {|} Consumed : 102
+~<Producer>~ {|} Produced : 32
+~<Consumer>~ {|} Consumed : 32
+~<Producer>~ {|} Produced : 96
+~<Consumer>~ {|} Consumed : 96
+~<Producer>~ {|} Produced : 102
+~<Consumer>~ {|} Consumed : 102
+~<Producer>~ {|} Produced : 65
+~<Consumer>~ {|} Consumed : 65
+~<Producer>~ {|} Produced : 105
+~<Consumer>~ {|} Consumed : 105
+~<Producer>~ {|} Produced : 150
+~<Consumer>~ {|} Consumed : 150
+~<Producer>~ {|} Produced : 62
+~<Consumer>~ {|} Consumed : 62
+~<Producer>~ {|} Produced : 50
+~<Consumer>~ {|} Consumed : 50
+~<Producer>~ {|} Produced : 18
+~<Consumer>~ {|} Consumed : 18
+~<Producer>~ {|} Produced : 138
+~<Consumer>~ {|} Consumed : 138
+~<Producer>~ {|} Produced : 70
+~<Consumer>~ {|} Consumed : 70
+~<Producer>~ {|} Produced : 191
+~<Consumer>~ {|} Consumed : 191
+~<Producer>~ {|} Produced : 32
+~<Consumer>~ {|} Consumed : 32
+~<Producer>~ {|} Produced : 30
+~<Consumer>~ {|} Consumed : 30
+```
