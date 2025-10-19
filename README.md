@@ -1,7 +1,7 @@
 # Operating Systems Assignment 1
 
 This code was compiled and run on hornet servers.
-
+You can view a sample of the output in `sample.png`
 # Running
 ### 1. Cloning the Repository
 ```
