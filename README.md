@@ -105,7 +105,7 @@ After this we print the value that we produced.
 sem_post(&myData->mutex); 
 sem_post(&myData->full); 
 ```
-We then update the data in the semaphores to not using it anymore and full so that the consumer knows what to do next.
+We then release the mutex for the semaphores to make sure the consumer knows we are done. After this we update full so that the consumer knows what to do next.
 ##### 6. Waiting
 ```cpp
 sleep(1);
