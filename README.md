@@ -34,3 +34,17 @@ To stop the code in a different terminal run `make clean`. This will kill both p
 #include <fcntl.h> // Used for O_CREAT and O_RDWR
 ```
 These include statements are used to ensure the user can operate the proper functions. These allow the user of semaphores, shared memory, `fttruncate` and other important things like `O_CREAT` which is used in creating the shared memory.
+
+### 2. The data structure
+
+```cpp
+// The data that will be shared by the processes
+struct data {
+    // sem_t => semaphore
+    sem_t empty; // tracks empty slots
+    sem_t full; // tracks full slots
+    sem_t mutex; // makes sure only one process at a time
+    int buffer[2]; // Shared buffer
+};
+```
+This structure is created in both the `producer.cpp` and the `consumer.cpp` this allows the storage of the semaphores. These check if the data is empty, full, being used by the other program, and what data is inside of them.
