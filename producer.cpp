@@ -33,7 +33,7 @@ void producer(data* myData) {
             produced += myData->buffer[i];
         }
 
-        std::cout << "Producer : " << produced << std::endl;
+        std::cout << "~<Producer>~ {|} Produced : " << produced << std::endl;
 
         // Updates to say we are not longer using the buffer
         sem_post(&myData->mutex); 

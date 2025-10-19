@@ -33,7 +33,7 @@ void consumer(data* myData) {
             myData->buffer[i] = 0;
         }
 
-        std::cout << "Consumer : " << consumed << std::endl;
+        std::cout << "~<Consumer>~ {|} Consumed : " << consumed << std::endl;
 
         sem_post(&myData->mutex); // release the buffer
         sem_post(&myData->empty); // signal that the buffer is empty and item has been consumed
