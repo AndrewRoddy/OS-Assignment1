@@ -164,6 +164,7 @@ if (singleData == MAP_FAILED) {
 	return 1;
 }
 ```
+We map a value of memory to a piece of data. This allows us to later edit this piece of memory. This is why we have a lot of strange values in the map.
 ##### 4. Initialing the Semaphores
 ```cpp
 // Initializes the empty buffer
