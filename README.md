@@ -95,3 +95,22 @@ for (int i = 0; i < 2; i++) {
 }
 ```
 After this we then loop through all of the buffer indexes (which there are only two). As we loop we insert a value into these buffer indexes. We then add this to the produced value to see how much we produced.
+
+
+##### 4. Printing
+```cpp
+std::cout << "~<Producer>~ {|} Produced : " << produced << std::endl;
+```
+After this we print the value that we produced.
+
+##### 5. Updating the semaphores
+```cpp
+sem_post(&myData->mutex); 
+sem_post(&myData->full); 
+```
+We then update the data in the semaphores to not using it anymore and full so that the consumer knows what to do next.
+##### 6. Waiting
+```cpp
+sleep(1);
+```
+We then have it wait for a second. This is not important but makes it visually easier to understand in the terminal. This code could be deleted but I decided to leave it in for educational purposes.
