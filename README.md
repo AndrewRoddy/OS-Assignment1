@@ -3,6 +3,7 @@
 This code was compiled and run on hornet servers.
 
 You can view a sample of the output in `example.png`.
+You can view aanother sample of the output in `example2.png`.
 # Running
 ### 1. Cloning the Repository
 ```
