@@ -8,3 +8,11 @@ This code was compiled and run on hornet servers.
 git clone https://github.com/AndrewRoddy/OS-Assignment1
 ```
 This command is used to clone the repository before running it.
+
+### 2. Running the code
+```
+make run
+```
+After this the user must use make run to run the code.
+This will build the `producer.cpp` and `consumer.cpp`.
+This is necessary to run the code.
