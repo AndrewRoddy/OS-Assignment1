@@ -72,3 +72,26 @@ void producer(data* myData) {
 }
 ```
 This is the most important part of the code. This is what allows the looping and editing of the shared memory.
+
+##### 1. The While Loop
+```cpp
+while (true) {}
+```
+It begins with a infinite loop that is never broken as we never want the processes to stop running. It then 
+
+##### 2. Semaphore waiting
+```cpp
+sem_wait(&myData->empty);
+sem_wait(&myData->mutex);
+```
+After this we wait until the there is an empty block of data and it is not being used. This is what the `empty` and `mutex` are for.
+
+##### 3. The Produced loop
+```cpp
+int produced = 0;
+for (int i = 0; i < 2; i++) {
+	myData->buffer[i] = rand() % 100 + 1;
+	produced += myData->buffer[i];
+}
+```
+After this we then loop through all of the buffer indexes (which there are only two). As we loop we insert a value into these buffer indexes. We then add this to the produced value to see how much we produced.
