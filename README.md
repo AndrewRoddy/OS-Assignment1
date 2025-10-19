@@ -116,6 +116,7 @@ sleep(1);
 We then have it wait for a second. This is not important but makes it visually easier to understand in the terminal. This code could be deleted but I decided to leave it in for educational purposes.This value can also only be a minimum of one second as it does not accept floats or doubles. This is also important as I selected the lowest possible amount for this function. Although I didn't mention this earlier this function comes from `unistd.h` which needs to be included to use it. This is okay though as we also need to include this library to run `ftruncate()` so we do not include anything just for this visual element.
 ### 4. The Main Function
 
+
 ##### 1. Starting up
 ```cpp
 int main() {
