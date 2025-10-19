@@ -293,3 +293,6 @@ int main() {
 ```
 
 All of this code is the exact same or less than the `producer.cpp`. It is not needed to be explained again.
+
+# Thank You
+Thank you for reading my OS Assignment 1 documentation! :)
