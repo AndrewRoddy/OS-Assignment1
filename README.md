@@ -135,3 +135,59 @@ int main() {
 ```
 We do a few initial things in int main to make this possible to run. The first thing we do is I send a starting up message so the user knows that this file is properly initialized. After this I set `srand()` to the current time to allow random numbers to be generated. Then I initialize the shared memory variable with `shm_open()`. This is stored in the `"/shared_buffer"`.
 I then have an if statement that prints an error message if it failed to initialize.
+
+
+##### 2. Starting up
+```cpp
+// Makes the size of the shared memory the same as data
+ftruncate(sharedMemory, sizeof(data));
+
+// Sends error message if failed to create memory
+if (sharedMemory == -1) {
+	std::cout << "Producer failed to create shared memory." << std::endl;
+	return 1;
+}
+```
+I then change the size of the shared memory to be the same as the data. I also include another error check to make sure this is changed properly. By cutting off the end of the shared memory we save space.
+
+##### 3. Mapping
+```cpp
+// Makes map of a single data value
+data* singleData = (data*) mmap(
+	0,
+	sizeof(data),
+	PROT_READ | PROT_WRITE,
+	MAP_SHARED,
+	sharedMemory,
+	0
+);
+
+// Sends error message if the map failed to initialize
+if (singleData == MAP_FAILED) {
+	std::cout << "Producer : Making the map failed" << std::endl;
+	return 1;
+}
+```
+##### 4. Initialing the Semaphores
+```cpp
+// Initializes the empty buffer
+sem_init(&singleData->empty, 1, 2); 
+
+// Initializes the full buffer as empty from the start
+sem_init(&singleData->full, 1, 0);
+
+// Makes sure the buffers are mutually exclusive
+sem_init(&singleData->mutex, 1, 1);
+```
+This piece of code is only there for the producer and not the consumer. Everything else in the main function is exactly the same for both. This piece of code is to initialize the values in the producer, consumer, and mutex before we run the producer function.
+
+##### 5. Starting the producer process
+```cpp
+    // Starts up the process
+    producer(singleData);
+
+    return 0;
+}
+```
+This just starts the producer process.
+
