@@ -8,7 +8,6 @@ This code was compiled and run on hornet servers.
 git clone https://github.com/AndrewRoddy/OS-Assignment1
 ```
 This command is used to clone the repository before running it.
-
 ### 2. Running the code
 ```
 make run
@@ -16,7 +15,6 @@ make run
 After this the user must use make run to run the code.
 This will build the `producer.cpp` and `consumer.cpp`.
 This is necessary to run the code.
-
 ### 3. Killing the processes
 ```
 make clean
@@ -96,7 +94,6 @@ for (int i = 0; i < 2; i++) {
 ```
 After this we then loop through all of the buffer indexes (which there are only two). As we loop we insert a value into these buffer indexes. We then add this to the produced value to see how much we produced.
 
-
 ##### 4. Printing
 ```cpp
 std::cout << "~<Producer>~ {|} Produced : " << produced << std::endl;
@@ -113,9 +110,10 @@ We then update the data in the semaphores to not using it anymore and full so th
 ```cpp
 sleep(1);
 ```
-We then have it wait for a second. This is not important but makes it visually easier to understand in the terminal. This code could be deleted but I decided to leave it in for educational purposes.This value can also only be a minimum of one second as it does not accept floats or doubles. This is also important as I selected the lowest possible amount for this function. Although I didn't mention this earlier this function comes from `unistd.h` which needs to be included to use it. This is okay though as we also need to include this library to run `ftruncate()` so we do not include anything just for this visual element.
-### 4. The Main Function
+We then have it wait for a second. This is not important but makes it visually easier to understand in the terminal. This code could be deleted but I decided to leave it in for educational purposes.
 
+This value can also only be a minimum of one second as it does not accept floats or doubles. This is also important as I selected the lowest possible amount for this function. Although I didn't mention this earlier this function comes from `unistd.h` which needs to be included to use it. This is okay though as we also need to include this library to run `ftruncate()` so we do not include anything just for this visual element.
+### 4. The Main Function
 
 ##### 1. Starting up
 ```cpp
@@ -135,8 +133,6 @@ int main() {
 ```
 We do a few initial things in int main to make this possible to run. The first thing we do is I send a starting up message so the user knows that this file is properly initialized. After this I set `srand()` to the current time to allow random numbers to be generated. Then I initialize the shared memory variable with `shm_open()`. This is stored in the `"/shared_buffer"`.
 I then have an if statement that prints an error message if it failed to initialize.
-
-
 ##### 2. Starting up
 ```cpp
 // Makes the size of the shared memory the same as data
@@ -190,7 +186,6 @@ This piece of code is only there for the producer and not the consumer. Everythi
 }
 ```
 This just starts the producer process.
-
 
 
 # The Consumer Code
