@@ -48,3 +48,27 @@ struct data {
 };
 ```
 This structure is created in both the `producer.cpp` and the `consumer.cpp` this allows the storage of the semaphores. These check if the data is empty, full, being used by the other program, and what data is inside of them.
+
+### 3. Producer Function
+
+```cpp
+void producer(data* myData) {
+    while (true) {
+        sem_wait(&myData->empty);
+        sem_wait(&myData->mutex);
+
+        int produced = 0;
+        for (int i = 0; i < 2; i++) {
+            myData->buffer[i] = rand() % 100 + 1;
+            produced += myData->buffer[i];
+        }
+
+        std::cout << "~<Producer>~ {|} Produced : " << produced << std::endl;
+
+        sem_post(&myData->mutex); 
+        sem_post(&myData->full); 
+        sleep(1);
+    }
+}
+```
+This is the most important part of the code. This is what allows the looping and editing of the shared memory.
